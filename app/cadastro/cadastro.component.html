@@ -1,0 +1,37 @@
+<div class="container">
+
+    <form class="row" (submit)="cadastrar($event)" [formGroup]="meuForm" >
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Título</label>
+                <input [(ngModel)]="foto.titulo" formControlName="titulo" name="titulo" class="form-control"  autocomplete="off">    
+            </div>
+            <div *ngIf="meuForm.controls.titulo.invalid">
+                <span *ngIf="meuForm.controls.titulo.errors.required">
+                    Título Obrigatório
+                </span>
+                <span *ngIf="meuForm.controls.titulo.errors.minlength">
+                    Titulo deve ter no minimo 4 caracteres
+                </span>
+            </div>
+            <div class="form-group">
+                <label>URL</label>
+                <input [(ngModel)]="foto.url" formControlName="url" name="url" class="form-control"  autocomplete="off">
+                <span *ngIf="meuForm.controls.url.invalid">
+                    URL Obrigatória
+                </span>
+            </div>
+            <div class="form-group">
+                <label>Descrição</label>
+                <textarea [(ngModel)]="foto.descricao" formControlName="descricao" name="descricao" class="form-control"  autocomplete="off">
+                </textarea>
+            </div>
+
+            <button type="submit" [disabled]="meuForm.invalid" class="btn btn-primary">
+                Salvar
+            </button>
+             <a [routerLink]="['']" class="btn btn-primary">Voltar</a>
+            <hr>
+        </div>
+    </form>
+</div>

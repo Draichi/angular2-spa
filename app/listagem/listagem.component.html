@@ -1,0 +1,12 @@
+<input class="form-control" #textoProcurado (keyup)="0" placeholder="Filtre por nome">
+
+<div class="row">    
+    <painel *ngFor="let foto of fotos | filtroPorTitulo: textoProcurado.value" [titulo]="foto.titulo" class="col-md-2">
+        <foto [url]="foto.url" [titulo]="foto.titulo"></foto>
+    </painel>
+</div>
+
+<button>
+    <a [routerLink]="['/cadastro']">Cadastrar</a>
+</button>
+
